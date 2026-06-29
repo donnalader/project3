@@ -1,14 +1,26 @@
 import json
+from commands.base_command import BaseCommand
+from commands import NoopCmd
 from screens.tournament.tournament_view import TournamentView
 from models.tournament import Tournament
 
-class ListTournamentsCommand:
-    def __init__(self):
-        self.view = TournamentView()
 
-    def execute(self):
-        with open("data/tournaments.json", "r") as f:
-            data = json.load(f)
+class TournamentListCmd(BaseCommand):
+    name = "tournament-list"
+
+    def execute(self, app, **kwargs):
+        view = TournamentView()
+
+        try:
+            with open("data/tournaments.json", "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print("\nNo tournaments found.")
+            return NoopCmd("tournament-menu")
 
         tournaments = [Tournament.from_dict(t) for t in data]
-        self.view.display_tournament_list(tournaments)
+
+        view.display_tournament_list(tournaments)
+
+        return NoopCmd("tournament-menu")
+

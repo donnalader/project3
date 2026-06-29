@@ -1,6 +1,7 @@
 from commands import NoopCmd, ExitCmd
 from screens.base_screen import BaseScreen
 
+
 class TournamentMenu(BaseScreen):
     """Tournament menu screen"""
 
