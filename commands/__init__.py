@@ -11,3 +11,7 @@ __all__ = [
     "NoopCmd",
     "PlayerUpdateCmd",
 ]
+def __init__(self):
+    command = ClubListCmd()
+    self.context = command()
+    print("DEBUG INITIAL CONTEXT:", self.context)

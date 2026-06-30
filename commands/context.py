@@ -1,21 +1,23 @@
 class Context:
     """
     Represents a 'context' for the application.
-
-    The context contains:
-    - a screen 'name'
-    - arguments
-    - a boolean controlling whether the application should stop running
     """
 
-    def __init__(self, screen=None, run=True, **kwargs):
+    def __init__(self, screen=None, run=True, kwargs=None, **extra):
+        # screen name
         self.screen = screen
+
+        # whether the app should keep running
         self.run = run
-        self.kwargs = kwargs
+
+        # kwargs for the next screen
+        # merge kwargs and extra keyword arguments
+        self.kwargs = kwargs or {}
+        self.kwargs.update(extra)
 
     def set_args(self, **kwargs):
-        """Syntactic sugar to set the kwargs attribute using dictionary unpacking"""
         self.kwargs = kwargs
 
     def __str__(self):
         return f"<Context: {self.screen} | {self.kwargs}>"
+

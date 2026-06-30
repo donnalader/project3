@@ -1,7 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from commands.context import Context
 
-
 class BaseCommand(metaclass=ABCMeta):
     """Base class for all commands."""
 
@@ -29,10 +28,13 @@ class BaseCommand(metaclass=ABCMeta):
         if isinstance(result, Context):
             return result
 
-        # If execute returned nothing, stay on current screen
+        # If execute returned nothing, stay on main menu
         if result is None:
             return Context(screen="main-menu")
 
         # Fallback: wrap anything unexpected
         return Context(screen=str(result))
+
+
+
 
