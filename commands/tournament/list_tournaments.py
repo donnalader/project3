@@ -1,5 +1,5 @@
 import json
-from commands.base_command import BaseCommand
+from commands.base import BaseCommand
 from commands import NoopCmd
 from screens.tournament.tournament_view import TournamentView
 from models.tournament import Tournament
@@ -22,5 +22,6 @@ class TournamentListCmd(BaseCommand):
 
         view.display_tournament_list(tournaments)
 
+        # ⭐ IMPORTANT:
+        # After listing tournaments, return to the tournament menu screen
         return NoopCmd("tournament-menu")
-

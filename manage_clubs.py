@@ -1,9 +1,13 @@
 from commands import ClubListCmd, NoopCmd, ExitCmd
-from commands.tournament import TournamentCreateCmd, TournamentListCmd, TournamentLoadCmd
+
 from screens.clubs import ClubCreate, ClubView
 from screens.players import PlayerView, PlayerEdit
 from screens import MainMenu
-from screens.tournament import TournamentMenu
+from screens.tournament.tournament_menu import TournamentMenu
+
+from commands.tournament.create_tournament import TournamentCreateCmd
+from commands.tournament.list_tournaments import TournamentListCmd
+from commands.tournament.load_tournament import TournamentLoadCmd
 
 
 class App:
@@ -17,14 +21,10 @@ class App:
         "player-edit": PlayerEdit,
         "player-create": PlayerEdit,
         "tournament-menu": TournamentMenu,
+
         "exit": False,
     }
-    COMMANDS = {
-        "tournament-list": TournamentListCmd,
-        "tournament-create": TournamentCreateCmd,
-        "tournament-load": TournamentLoadCmd,   
-    }
-
+   
     def __init__(self):
         # We start with the list of clubs (= main menu)
         command = ClubListCmd()

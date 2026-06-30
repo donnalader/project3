@@ -1,28 +1,38 @@
-from screens.tournament.tournament_view import TournamentMenuView
-from commands.tournament.list_tournaments import ListTournamentsCommand
-from commands.tournament.create_tournament import CreateTournamentCommand
-from commands.tournament.load_tournament import LoadTournamentCommand
+from commands import NoopCmd
+from commands.tournament.create_tournament import TournamentCreateCmd
+from commands.tournament.list_tournaments import TournamentListCmd
+from commands.tournament.load_tournament import TournamentLoadCmd
+from screens.base_screen import BaseScreen
 
-class TournamentMenuController:
-    def __init__(self):
-        self.view = TournamentMenuView()
+
+class TournamentMenu(BaseScreen):
+    """Tournament menu screen"""
+
+    def display(self):
+        print("\n=== TOURNAMENT MENU ===")
+        print("1. List tournaments")
+        print("2. Create a tournament")
+        print("3. Load a tournament")
+        print("X. Return to main menu")
 
     def run(self):
-        while True:
-            choice = self.view.display_menu()
+        self.display()
+        value = self.input_string()
 
-            if choice == "1":
-                ListTournamentsCommand().execute()
+        if value == "1":
+            # MUST return actual command object
+            return TournamentListCmd()
 
-            elif choice == "2":
-                CreateTournamentCommand().execute()
+        elif value == "2":
+            return TournamentCreateCmd()
 
-            elif choice == "3":
-                LoadTournamentCommand().execute()
+        elif value == "3":
+            return TournamentLoadCmd()
 
-            elif choice == "4":
-                print("Returning to main menu.")
-                return
+        elif value.upper() == "X":
+            # NoopCmd is correct for screen navigation
+            return NoopCmd("main-menu")
 
-            else:
-                print("Invalid choice.")
+        else:
+            print("Invalid choice.")
+            return NoopCmd("tournament-menu")

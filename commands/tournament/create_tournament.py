@@ -1,5 +1,5 @@
 import json
-from commands.base_command import BaseCommand
+from commands.base import BaseCommand
 from commands import NoopCmd
 from screens.tournament.tournament_view import TournamentView
 from models.tournament import Tournament
