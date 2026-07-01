@@ -28,7 +28,6 @@ class App:
 
         # Tournament screens
         "tournament-menu": TournamentMenu,
-        "tournament-create": TournamentCreate,
         "tournament-list": TournamentList, 
         "tournament-load": TournamentLoad, 
                     # Exit screen

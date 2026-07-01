@@ -16,13 +16,16 @@ class TournamentMenu(BaseScreen):
         value = self.input_string()
 
         if value == "1":
-            return NoopCmd("tournament-list")
+            from commands.tournament.list_tournaments import TournamentListCmd
+            return TournamentListCmd()
 
         elif value == "2":
-            return NoopCmd("tournament-create")
+            from commands.tournament.create_tournament import TournamentCreateCmd
+            return TournamentCreateCmd()
 
         elif value == "3":
-            return NoopCmd("tournament-load")
+            from commands.tournament.load_tournament import TournamentLoadCmd
+            return TournamentLoadCmd()
 
         elif value.upper() == "X":
             return NoopCmd("main-menu")
