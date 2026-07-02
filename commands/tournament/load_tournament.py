@@ -1,6 +1,8 @@
 import json
+
 from commands.base import BaseCommand
 from commands import NoopCmd
+from models import tournament
 from screens.tournament.tournament_view import TournamentView
 from models.tournament import Tournament
 
@@ -38,5 +40,5 @@ class TournamentLoadCmd(BaseCommand):
         print("\nTournament loaded:")
         view.display_tournament(tournament)
 
-        return NoopCmd("tournament-menu")
-
+        kwargs["tournament"] = tournament
+        return NoopCmd("tournament-actions", tournament=tournament)

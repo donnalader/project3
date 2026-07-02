@@ -13,5 +13,12 @@ class NoopCmd(BaseCommand):
         merged = {}
         merged.update(self.kwargs)
         merged.update(kwargs)
+
+        # ⭐ Store merged kwargs into the app context
+        if app is not None:
+            app.context.kwargs.update(merged)
+
+        # Return a Context pointing to the next screen
         return Context(self.screen, kwargs=merged)
+
 

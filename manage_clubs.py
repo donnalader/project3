@@ -10,6 +10,7 @@ from screens.tournament.tournament_menu import TournamentMenu
 from screens.tournament.tournament_create import TournamentCreate
 from screens.tournament.tournament_load import TournamentLoad
 from screens.tournament.tournament_list import TournamentList
+from screens.tournament.tournament_actions_menu import TournamentActionsMenu
 from commands.tournament.create_tournament import TournamentCreateCmd
 from commands.tournament.list_tournaments import TournamentListCmd
 from commands.tournament.load_tournament import TournamentLoadCmd
@@ -30,6 +31,7 @@ class App:
         "tournament-menu": TournamentMenu,
         "tournament-list": TournamentList, 
         "tournament-load": TournamentLoad, 
+        "tournament-actions": TournamentActionsMenu,
                     # Exit screen
         "exit": False,
     }
