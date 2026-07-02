@@ -1,11 +1,8 @@
 import json
-
 from commands.base import BaseCommand
 from commands import NoopCmd
-from models import tournament
 from screens.tournament.tournament_view import TournamentView
 from models.tournament import Tournament
-
 
 class TournamentLoadCmd(BaseCommand):
     name = "tournament-load"
@@ -13,32 +10,34 @@ class TournamentLoadCmd(BaseCommand):
     def execute(self, app, **kwargs):
         view = TournamentView()
 
+        # Load tournaments JSON
         try:
             with open("data/tournaments.json", "r") as f:
                 data = json.load(f)
         except FileNotFoundError:
-            print("\nNo tournaments found.")
+            print("No tournaments found.")
             return NoopCmd("tournament-menu")
 
-        tournaments = [Tournament.from_dict(t) for t in data]
+        if not data:
+            print("No tournaments available.")
+            return NoopCmd("tournament-menu")
 
-        view.display_tournament_list(tournaments)
-        selection = view.ask_for_tournament_selection()
+        # Ask user which tournament to load
+        index = view.ask_for_tournament_index(data)
 
-        if not selection.isdigit():
+        # Validate selection
+        if index is None or index < 0 or index >= len(data):
             print("Invalid selection.")
             return NoopCmd("tournament-menu")
 
-        index = int(selection) - 1
+        # Convert dict → Tournament object
+        tournament = Tournament.from_dict(data[index])
 
-        if index not in range(len(tournaments)):
-            print("Invalid selection.")
-            return NoopCmd("tournament-menu")
+        # Store BOTH the tournament and its index
+        return NoopCmd(
+            "tournament-actions",
+            tournament=tournament,
+            tournament_index=index
+        )
 
-        tournament = tournaments[index]
-
-        print("\nTournament loaded:")
-        view.display_tournament(tournament)
-
-        kwargs["tournament"] = tournament
-        return NoopCmd("tournament-actions", tournament=tournament)
+        

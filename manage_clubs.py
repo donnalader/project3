@@ -37,9 +37,15 @@ class App:
     }
 
     def __init__(self):
-        # Start with the list of clubs (main menu)
+    # Start by loading the list of clubs
         command = ClubListCmd()
         self.context = command()
+
+    # Safety fallback: if ClubListCmd returned no clubs
+        if "clubs" not in self.context.kwargs:
+            self.context.kwargs["clubs"] = []
+
+
 
     def run(self):
         while self.context.run:
@@ -61,8 +67,9 @@ class App:
                 # Run the screen → get a command object
                 command = screen(**self.context.kwargs).run()
 
-                # Run the command → get a new Context
-                self.context = command()
+                # Run the command → pass context kwargs so they are not lost
+                self.context = command(app, **self.context.kwargs)
+
 
             except KeyboardInterrupt:
                 print("Bye!")

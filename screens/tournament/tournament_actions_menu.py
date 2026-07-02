@@ -2,38 +2,44 @@ from screens.base_screen import BaseScreen
 from commands import NoopCmd
 
 class TournamentActionsMenu(BaseScreen):
-    """Actions available after loading a tournament."""
+    """Actions available after loading a tournament"""
 
-    def __init__(self, tournament=None, **kwargs):
-        self.tournament = tournament or kwargs.get("tournament")
+    def __init__(self, **kwargs):
+        # BaseScreen now handles context correctly
+        super().__init__(**kwargs)
 
     def display(self):
         print("\n=== TOURNAMENT ACTIONS ===")
-        print(f"Tournament: {self.tournament.name}")
         print("1. Add player")
-        print("2. Start tournament (generate rounds)")
-        print("3. Play current round")
-        print("4. View rounds")
+        print("2. View players")
+        print("3. Generate rounds")
         print("X. Return to tournament menu")
 
     def get_command(self):
         value = self.input_string()
 
+        tournament = self.context.kwargs.get("tournament")
+        tournament_index = self.context.kwargs.get("tournament_index")
+
         if value == "1":
             from commands.tournament.add_player import TournamentAddPlayerCmd
-            return TournamentAddPlayerCmd(self.tournament)
+            return TournamentAddPlayerCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )
 
         elif value == "2":
-            from commands.tournament.generate_rounds import TournamentGenerateRoundsCmd
-            return TournamentGenerateRoundsCmd(self.tournament)
+            from commands.tournament.view_players import TournamentViewPlayersCmd
+            return TournamentViewPlayersCmd(
+                tournament=tournament
+            )
 
         elif value == "3":
-            from commands.tournament.play_round import TournamentPlayRoundCmd
-            return TournamentPlayRoundCmd(self.tournament)
-
-        elif value == "4":
-            from commands.tournament.view_rounds import TournamentViewRoundsCmd
-            return TournamentViewRoundsCmd(self.tournament)
+            from commands.tournament.generate_rounds import TournamentGenerateRoundsCmd
+            return TournamentGenerateRoundsCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )
 
         elif value.upper() == "X":
             return NoopCmd("tournament-menu")
