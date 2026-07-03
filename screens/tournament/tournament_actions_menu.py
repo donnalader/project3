@@ -2,10 +2,9 @@ from screens.base_screen import BaseScreen
 from commands import NoopCmd
 
 class TournamentActionsMenu(BaseScreen):
-    """Actions available after loading a tournament"""
+    """Actions available after loading a tournament."""
 
     def __init__(self, **kwargs):
-        # BaseScreen now handles context correctly
         super().__init__(**kwargs)
 
     def display(self):
@@ -13,6 +12,11 @@ class TournamentActionsMenu(BaseScreen):
         print("1. Add player")
         print("2. View players")
         print("3. Generate rounds")
+        print("4. Import players from club file")
+        print("5. Enter results for current round")
+        print("6. Advance to next round")
+        print("7. View tournament report")
+        print("8. Search players")
         print("X. Return to tournament menu")
 
     def get_command(self):
@@ -31,7 +35,8 @@ class TournamentActionsMenu(BaseScreen):
         elif value == "2":
             from commands.tournament.view_players import TournamentViewPlayersCmd
             return TournamentViewPlayersCmd(
-                tournament=tournament
+                tournament=tournament,
+                tournament_index=tournament_index
             )
 
         elif value == "3":
@@ -41,9 +46,43 @@ class TournamentActionsMenu(BaseScreen):
                 tournament_index=tournament_index
             )
 
+        elif value == "4":
+            from commands.tournament.import_players import TournamentImportPlayersCmd
+            return TournamentImportPlayersCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )
+        elif value == "5":
+            from commands.tournament.enter_results import TournamentEnterResultsCmd
+            return TournamentEnterResultsCmd(
+                tournament=tournament,
+                tournament_index=tournament_index             
+            )
+        elif value == "6":
+            from commands.tournament.advance_round import TournamentAdvanceRoundCmd
+            return TournamentAdvanceRoundCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            ) 
+         elif value == "7":
+            from commands.tournament.report import TournamentReportCmd
+            return TournamentReportCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )  
+         elif value == "8":
+            from commands.tournament.search_players import TournamentSearchPlayersCmd
+            return TournamentSearchPlayersCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )
+
+
         elif value.upper() == "X":
             return NoopCmd("tournament-menu")
 
         else:
             print("Invalid choice.")
-            return NoopCmd("tournament-actions")
+            return NoopCmd("tournament-actions",
+                           tournament=tournament,
+                           tournament_index=tournament_index)

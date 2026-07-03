@@ -7,7 +7,7 @@ Represents a chess tournament, including players, rounds, and metadata.
 from dataclasses import dataclass, field
 from typing import List
 from .round import Round
-from .player_model import Player
+from .player import Player
 
 
 @dataclass
