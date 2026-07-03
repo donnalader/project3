@@ -64,13 +64,13 @@ class TournamentActionsMenu(BaseScreen):
                 tournament=tournament,
                 tournament_index=tournament_index
             ) 
-         elif value == "7":
+        elif value == "7":
             from commands.tournament.report import TournamentReportCmd
             return TournamentReportCmd(
                 tournament=tournament,
                 tournament_index=tournament_index
             )  
-         elif value == "8":
+        elif value == "8":
             from commands.tournament.search_players import TournamentSearchPlayersCmd
             return TournamentSearchPlayersCmd(
                 tournament=tournament,
