@@ -13,8 +13,22 @@ class TournamentActionsMenu(BaseScreen):
         print("\n=== TOURNAMENT ACTIONS ===")
 
         if tournament:
-            print(f"Selected tournament: {tournament.name}")
+            if tournament.current_round == 0:
+                status = "Not started"
+            elif tournament.current_round < tournament.total_rounds:
+                status = "In progress"
+            else:
+                status = "Completed"
 
+            player_count = len(tournament.players)
+
+            print(f"Selected tournament: {tournament.name}")
+            print(f"Status: {status}")
+            print(f"Players: {player_count}")
+            print(f"Current round: {tournament.current_round}/{tournament.total_rounds}")
+            print(f"Status: {status}")
+            print("----------------------------")
+            
         print("1. Add player")
         print("2. View players")
         print("3. Generate rounds")
