@@ -38,6 +38,22 @@ class Tournament:
             print("Tournament has already completed all rounds.")
 
     # -----------------------------
+    # Reset Tournament
+    # -----------------------------
+    def reset(self):
+        """
+        Reset the tournament:
+        - Clear all rounds
+        - Reset current round to 0
+        - Reset all player points
+        """
+        self.rounds = []
+        self.current_round = 0
+
+        for p in self.players:
+            p.points = 0
+
+    # -----------------------------
     # Serialization
     # -----------------------------
     def to_dict(self) -> dict:
