@@ -30,32 +30,47 @@ class TournamentGenerateRoundsCmd(BaseCommand):
                            tournament=tournament,
                            tournament_index=index)
 
+        # Determine round number
         round_number = len(tournament.rounds) + 1
+
+        # Prevent generating past total rounds
+        if round_number > tournament.total_rounds:
+            print("All rounds have already been generated.")
+            return NoopCmd("tournament-actions",
+                           tournament=tournament,
+                           tournament_index=index)
+
+        # Prevent generating the same round twice
+        if tournament.current_round >= round_number:
+            print(f"Round {round_number} has already been generated.")
+            return NoopCmd("tournament-actions",
+                           tournament=tournament,
+                           tournament_index=index)
+
         print(f"\nGenerating Round {round_number}...")
 
-        # -----------------------------
+        # ---------------------------------------------------------
         # ROUND 1 → RANDOM PAIRINGS
-        # -----------------------------
+        # ---------------------------------------------------------
         if round_number == 1:
-            random.shuffle(players)
+            shuffled = players[:]  # shuffle a copy
+            random.shuffle(shuffled)
             pairings = []
 
-            for i in range(0, len(players), 2):
-                if i + 1 < len(players):
-                    pairings.append((players[i], players[i+1]))
+            for i in range(0, len(shuffled), 2):
+                if i + 1 < len(shuffled):
+                    pairings.append((shuffled[i], shuffled[i+1]))
                 else:
                     # Odd number → bye
-                    print(f"{players[i].name} receives a bye.")
-                    players[i].points += 1  # Award 1 point for bye
+                    print(f"{shuffled[i].name} receives a bye (+1 point)")
+                    shuffled[i].points += 1
 
-        # -----------------------------
+        # ---------------------------------------------------------
         # ROUND 2+ → SORT BY POINTS
-        # -----------------------------
+        # ---------------------------------------------------------
         else:
-            # Sort players by descending points
             sorted_players = sorted(players, key=lambda p: p.points, reverse=True)
             pairings = []
-
             used = set()
 
             for i in range(len(sorted_players)):
@@ -73,12 +88,12 @@ class TournamentGenerateRoundsCmd(BaseCommand):
             # Handle odd number of players
             remaining = [p for p in sorted_players if p not in used]
             if remaining:
-                print(f"{remaining[0].name} receives a bye.")
+                print(f"{remaining[0].name} receives a bye (+1 point)")
                 remaining[0].points += 1
 
-        # -----------------------------
+        # ---------------------------------------------------------
         # CREATE ROUND OBJECT
-        # -----------------------------
+        # ---------------------------------------------------------
         new_round = Round(round_number=round_number)
 
         for p1, p2 in pairings:
@@ -86,10 +101,20 @@ class TournamentGenerateRoundsCmd(BaseCommand):
             new_round.add_match(match)
 
         tournament.rounds.append(new_round)
+        tournament.current_round = round_number
 
-        # -----------------------------
+        # ---------------------------------------------------------
+        # DISPLAY PAIRINGS
+        # ---------------------------------------------------------
+        print("\nPairings:")
+        for p1, p2 in pairings:
+            print(f"  {p1.name} vs {p2.name}")
+
+        print(f"\nRound {round_number} generated successfully!")
+
+        # ---------------------------------------------------------
         # SAVE TO JSON
-        # -----------------------------
+        # ---------------------------------------------------------
         with open("data/tournaments.json", "r") as f:
             data = json.load(f)
 
@@ -98,8 +123,7 @@ class TournamentGenerateRoundsCmd(BaseCommand):
         with open("data/tournaments.json", "w") as f:
             json.dump(data, f, indent=4)
 
-        print(f"Round {round_number} generated successfully!")
-
         return NoopCmd("tournament-actions",
                        tournament=tournament,
                        tournament_index=index)
+

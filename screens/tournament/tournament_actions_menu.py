@@ -37,6 +37,7 @@ class TournamentActionsMenu(BaseScreen):
         print("6. Advance to next round")
         print("7. View tournament report")
         print("8. Search players")
+        print("9. View current round")
         print("X. Return to tournament menu")
 
     def get_command(self):
@@ -93,6 +94,12 @@ class TournamentActionsMenu(BaseScreen):
         elif value == "8":
             from commands.tournament.search_players import TournamentSearchPlayersCmd
             return TournamentSearchPlayersCmd(
+                tournament=tournament,
+                tournament_index=tournament_index
+            )
+        elif value == "9":
+            from commands.tournament.view_current_round import TournamentViewCurrentRoundCmd
+            return TournamentViewCurrentRoundCmd(
                 tournament=tournament,
                 tournament_index=tournament_index
             )
