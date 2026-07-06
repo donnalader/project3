@@ -1,5 +1,4 @@
-from .clubs import ClubCreate, ClubView
+from .screen_registry import screen_registry
 from .main_menu import MainMenu
-from .players import PlayerEdit, PlayerView
 
-__all__ = ["ClubCreate", "ClubView", "MainMenu", "PlayerView"]
+__all__ = ["screen_registry", "MainMenu"]

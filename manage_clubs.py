@@ -1,5 +1,5 @@
-from screens import MainMenu
-from commands.noop import NoopCmd
+import json
+from screens import screen_registry, MainMenu
 
 
 class App:
@@ -9,26 +9,41 @@ class App:
     """
 
     def __init__(self):
-        # Initial context passed to screens
-        self.context = {}
+        # Load clubs at startup
+        self.context = {"clubs": self.load_clubs()}
 
         # Start at main menu
         self.current_screen = MainMenu
+
+    def load_clubs(self):
+        """Load clubs from JSON file."""
+        try:
+            with open("data/clubs.json", "r") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return []
 
     def set_screen(self, screen_name, **kwargs):
         """
         Switch to a new screen by name.
         """
-        from screens import screen_registry
-
         if screen_name not in screen_registry:
             print(f"Unknown screen '{screen_name}'. Returning to main menu.")
             self.current_screen = MainMenu
-            self.context = {}
+            self.context = {"clubs": self.load_clubs()}
             return
 
         self.current_screen = screen_registry[screen_name]
-        self.context = kwargs
+
+        # Always keep clubs in context
+        new_context = {"clubs": self.context.get("clubs", [])}
+
+        # Add any additional kwargs (except None)
+        for key, value in kwargs.items():
+            if value is not None:
+                new_context[key] = value
+
+        self.context = new_context
 
     def run(self):
         """
@@ -42,7 +57,7 @@ class App:
             if hasattr(command, "execute"):
                 command.execute(self)
             else:
-                print("Invalid command object returned. Returning to main menu.")
+                print("Invalid command returned. Returning to main menu.")
                 self.set_screen("main-menu")
 
 
