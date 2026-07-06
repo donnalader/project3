@@ -99,7 +99,7 @@ class TournamentActionsMenu(BaseScreen):
             return ResetTournamentCmd(tournament=tournament, tournament_index=tournament_index)
 
         elif value == "X":
-            return NoopCmd("main-menu")
+            return NoopCmd("main-menu", clear_context=True)
 
         else:
             print("Invalid choice.")

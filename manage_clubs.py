@@ -1,79 +1,49 @@
-print("MANAGE CLUBS FILE LOADED")
-from commands import ClubListCmd, NoopCmd, ExitCmd
-
-from screens.clubs import ClubCreate, ClubView
-from screens.players import PlayerView, PlayerEdit
 from screens import MainMenu
-
-
-from screens.tournament.tournament_menu import TournamentMenu
-from screens.tournament.tournament_create import TournamentCreate
-from screens.tournament.tournament_load import TournamentLoad
-from screens.tournament.tournament_list import TournamentList
-from screens.tournament.tournament_actions_menu import TournamentActionsMenu
-from commands.tournament.create_tournament import TournamentCreateCmd
-from commands.tournament.list_tournaments import TournamentListCmd
-from commands.tournament.load_tournament import TournamentLoadCmd
+from commands.noop import NoopCmd
 
 
 class App:
-    """The main controller for the club management program"""
-
-    SCREENS = {
-        "main-menu": MainMenu,
-        "club-create": ClubCreate,
-        "club-view": ClubView,
-        "player-view": PlayerView,
-        "player-edit": PlayerEdit,
-        "player-create": PlayerEdit,
-
-        # Tournament screens
-        "tournament-menu": TournamentMenu,
-        "tournament-list": TournamentList, 
-        "tournament-load": TournamentLoad, 
-        "tournament-actions": TournamentActionsMenu,
-                    # Exit screen
-        "exit": False,
-    }
+    """
+    Main application controller.
+    Handles screen switching and command execution.
+    """
 
     def __init__(self):
-    # Start by loading the list of clubs
-        command = ClubListCmd()
-        self.context = command()
+        # Initial context passed to screens
+        self.context = {}
 
-    # Safety fallback: if ClubListCmd returned no clubs
-        if "clubs" not in self.context.kwargs:
-            self.context.kwargs["clubs"] = []
+        # Start at main menu
+        self.current_screen = MainMenu
 
+    def set_screen(self, screen_name, **kwargs):
+        """
+        Switch to a new screen by name.
+        """
+        from screens import screen_registry
 
+        if screen_name not in screen_registry:
+            print(f"Unknown screen '{screen_name}'. Returning to main menu.")
+            self.current_screen = MainMenu
+            self.context = {}
+            return
+
+        self.current_screen = screen_registry[screen_name]
+        self.context = kwargs
 
     def run(self):
-        while self.context.run:
-            screen_name = self.context.screen
+        """
+        Main loop: display screen → get command → execute command.
+        """
+        while True:
+            screen = self.current_screen(**self.context)
+            command = screen.run()
 
-            # Safety check: screen must exist
-            if screen_name not in self.SCREENS:
-                print(f"Unknown screen '{screen_name}'. Returning to main menu.")
-                screen_name = "main-menu"
-
-            screen = self.SCREENS[screen_name]
-
-            # If screen is False → exit
-            if screen is False:
-                print("Bye!")
-                break
-
-            try:
-                # Run the screen → get a command object
-                command = screen(**self.context.kwargs).run()
-
-                # Run the command → pass context kwargs so they are not lost
-                self.context = command(app, **self.context.kwargs)
-
-
-            except KeyboardInterrupt:
-                print("Bye!")
-                self.context.run = False
+            # All commands must have an execute() method
+            if hasattr(command, "execute"):
+                command.execute(self)
+            else:
+                print("Invalid command object returned. Returning to main menu.")
+                self.set_screen("main-menu")
 
 
 if __name__ == "__main__":

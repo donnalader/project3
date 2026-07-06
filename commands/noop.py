@@ -1,29 +1,24 @@
-from commands.context import Context
-from .base import BaseCommand
+class NoopCmd:
+    """
+    A simple command that switches screens without performing any action.
+    Now supports clearing context to avoid passing unwanted kwargs
+    (such as 'tournament') to screens that don't accept them.
+    """
 
-class NoopCmd(BaseCommand):
-    """A command that simply returns a context with a given screen."""
+    def __init__(self, screen_name, clear_context=False, **kwargs):
+        self.screen_name = screen_name
 
-    def __init__(self, screen, **kwargs):
-        self.screen = screen
-        self.kwargs = kwargs
+        # If clear_context=True, wipe all kwargs so screens like MainMenu don't crash
+        if clear_context:
+            self.kwargs = {}
+        else:
+            self.kwargs = kwargs
 
-    def execute(self, app=None, **kwargs):
-        # Always merge constructor kwargs with execution kwargs
-        merged = dict(self.kwargs)   # start with kwargs passed at creation
-        merged.update(kwargs)        # add kwargs passed at execution (if any)
-
-        # Ensure app.context exists before updating
-        if app is not None and hasattr(app, "context"):
-            # If app.context.kwargs is missing, create it
-            if not hasattr(app.context, "kwargs"):
-                app.context.kwargs = {}
-
-            # Update app context with merged kwargs
-            app.context.kwargs.update(merged)
-
-        # Return a Context pointing to the next screen
-        return Context(self.screen, kwargs=merged)
+    def execute(self, app):
+        """
+        The app will call this to switch screens.
+        """
+        app.set_screen(self.screen_name, **self.kwargs)
 
 
 
