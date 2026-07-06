@@ -38,7 +38,7 @@ class TournamentActionsMenu(BaseScreen):
         print("8. Search players")
         print("9. View current round")
         print("10. View standings")
-        print("Enter all results (bulk)")
+        print("11. Enter all results (bulk)")
         print("X. Return to main menu")
 
     def get_command(self):

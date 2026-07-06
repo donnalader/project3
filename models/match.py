@@ -9,12 +9,6 @@ class Match:
     result: Optional[str] = None  # "1", "2", "T" (tie)
 
     def set_result(self, result: str):
-        """
-        Set the result of the match.
-        result = "1" → player1 wins
-        result = "2" → player2 wins
-        result = "T" → tie
-        """
         self.result = result
 
         if result == "1":
@@ -27,15 +21,21 @@ class Match:
 
     def to_dict(self):
         return {
-            "player1": self.player1.to_dict(),
-            "player2": self.player2.to_dict(),
+            "player1_id": self.player1.chess_id,
+            "player2_id": self.player2.chess_id,
             "result": self.result
         }
 
     @staticmethod
-    def from_dict(data):
-        p1 = Player.from_dict(data["player1"])
-        p2 = Player.from_dict(data["player2"])
+    def from_dict(data, players):
+        """
+        players = the REAL list of Player objects from the tournament.
+        We find the correct Player objects by chess_id.
+        """
+
+        p1 = next(p for p in players if p.chess_id == data["player1_id"])
+        p2 = next(p for p in players if p.chess_id == data["player2_id"])
+
         match = Match(player1=p1, player2=p2, result=data.get("result"))
         return match
 

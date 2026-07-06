@@ -1,9 +1,3 @@
-"""
-Tournament Model
-----------------
-Represents a chess tournament, including players, rounds, and metadata.
-"""
-
 from dataclasses import dataclass, field
 from typing import List
 from .round import Round
@@ -17,7 +11,7 @@ class Tournament:
     start_date: str
     end_date: str
     total_rounds: int
-    current_round: int = 1
+    current_round: int = 0   # IMPORTANT: start at 0
     players: List[Player] = field(default_factory=list)
     rounds: List[Round] = field(default_factory=list)
 
@@ -64,16 +58,27 @@ class Tournament:
         """Create a Tournament object from a dictionary loaded from JSON."""
         from .round import Round  # avoid circular import
 
+        # Create tournament object
         tournament = Tournament(
             name=data["name"],
             venue=data["venue"],
             start_date=data["start_date"],
             end_date=data["end_date"],
             total_rounds=data["total_rounds"],
-            current_round=data.get("current_round", 1),
-            players=[Player.from_dict(p) for p in data.get("players", [])],
-            rounds=[Round.from_dict(r) for r in data.get("rounds", [])]
+            current_round=data.get("current_round", 0)
         )
+
+        # Load players FIRST (real objects)
+        tournament.players = [
+            Player.from_dict(p)
+            for p in data.get("players", [])
+        ]
+
+        # Load rounds using REAL players
+        tournament.rounds = [
+            Round.from_dict(r, tournament.players)
+            for r in data.get("rounds", [])
+        ]
 
         return tournament
 

@@ -1,19 +1,12 @@
 [
     {
-        "name": "Test",
-        "venue": "Testville",
-        "start_date": "2026-07-04",
-        "end_date": "2026-07-05",
+        "name": "Test My Code",
+        "venue": "Happy land",
+        "start_date": "2026-07-06",
+        "end_date": "2026-07-06",
         "total_rounds": 2,
-        "current_round": 1,
+        "current_round": 2,
         "players": [
-            {
-                "name": "Alice Johnson",
-                "email": "alice@example.com",
-                "chess_id": "A12345",
-                "birthday": "12-05-1990",
-                "points": 0
-            },
             {
                 "name": "Tim",
                 "email": "t@y.vu",
@@ -26,21 +19,21 @@
                 "email": "shortmelvin@example.net",
                 "chess_id": "JW63361",
                 "birthday": "23-01-1921",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Shawn Key",
                 "email": "zbyrd@example.net",
                 "chess_id": "QZ98880",
                 "birthday": "05-08-1916",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Tyler Brown",
                 "email": "watersbob@example.net",
                 "chess_id": "QQ22510",
                 "birthday": "07-05-2001",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Whitney Hernandez",
@@ -54,7 +47,7 @@
                 "email": "heatherbowman@example.net",
                 "chess_id": "BR95594",
                 "birthday": "06-01-1930",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Paul Miller",
@@ -68,14 +61,14 @@
                 "email": "willie67@example.net",
                 "chess_id": "LH07588",
                 "birthday": "04-09-1938",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Randall Jones",
                 "email": "candiceherrera@example.net",
                 "chess_id": "NT52182",
                 "birthday": "22-11-1914",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Tina Thomas",
@@ -89,7 +82,7 @@
                 "email": "justinmartin@example.com",
                 "chess_id": "NF64548",
                 "birthday": "18-03-1931",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Bradley Lewis",
@@ -103,56 +96,56 @@
                 "email": "sharonbrown@example.org",
                 "chess_id": "AA20548",
                 "birthday": "12-03-1977",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Debra Wright",
                 "email": "masonfrancis@example.org",
                 "chess_id": "KX94073",
                 "birthday": "23-10-2002",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Kyle Black",
                 "email": "simmonsjane@example.org",
                 "chess_id": "EH80058",
                 "birthday": "15-09-1951",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Michael Guerrero",
                 "email": "vazqueznatalie@example.org",
                 "chess_id": "QN17136",
                 "birthday": "04-02-1969",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Katherine Walton",
                 "email": "prestonbrittany@example.net",
                 "chess_id": "OO65047",
                 "birthday": "28-09-1938",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Jeremy Pena",
                 "email": "ryancarlson@example.org",
                 "chess_id": "XF90587",
                 "birthday": "03-06-1950",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "John Phillips",
                 "email": "gregbarnes@example.net",
                 "chess_id": "RW15089",
                 "birthday": "21-03-1935",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Anthony Hines",
                 "email": "ijohnston@example.org",
                 "chess_id": "LS93715",
                 "birthday": "03-06-1973",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Henry Grant",
@@ -166,28 +159,28 @@
                 "email": "hunterlopez@example.com",
                 "chess_id": "YQ88272",
                 "birthday": "03-07-2008",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Melissa Ford",
                 "email": "christinesanchez@example.com",
                 "chess_id": "UY63209",
                 "birthday": "06-08-1945",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Ryan Warren",
                 "email": "wcastillo@example.com",
                 "chess_id": "QJ67186",
                 "birthday": "29-08-1998",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Billy Anderson",
                 "email": "marywilson@example.net",
                 "chess_id": "DP10300",
                 "birthday": "25-08-1970",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Dustin Byrd",
@@ -201,21 +194,21 @@
                 "email": "nwalter@example.net",
                 "chess_id": "LM54156",
                 "birthday": "24-07-1939",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Jason Sanford",
                 "email": "edwardwatkins@example.org",
                 "chess_id": "NX13191",
                 "birthday": "06-11-1959",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Michelle Ramos",
                 "email": "marcgross@example.org",
                 "chess_id": "PV16440",
                 "birthday": "27-04-1950",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Grace Cobb",
@@ -229,7 +222,7 @@
                 "email": "walshnathan@example.net",
                 "chess_id": "XW31336",
                 "birthday": "05-03-1961",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Rachel Myers",
@@ -243,7 +236,7 @@
                 "email": "christinerussell@example.net",
                 "chess_id": "RN31708",
                 "birthday": "06-07-1944",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Philip Sullivan",
@@ -264,35 +257,35 @@
                 "email": "christophercarroll@example.com",
                 "chess_id": "FY61741",
                 "birthday": "18-11-1927",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Derrick Cross",
                 "email": "cschwartz@example.net",
                 "chess_id": "KV43923",
                 "birthday": "09-05-1916",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Deborah Taylor",
                 "email": "molly81@example.org",
                 "chess_id": "FQ87503",
                 "birthday": "23-06-1979",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Adrian Ward",
                 "email": "nguyenmichael@example.net",
                 "chess_id": "IV51506",
                 "birthday": "19-08-1939",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Deanna Guerra",
                 "email": "kelseythomas@example.com",
                 "chess_id": "OW14240",
                 "birthday": "13-12-1948",
-                "points": 0
+                "points": 2
             }
         ],
         "rounds": [
@@ -300,364 +293,212 @@
                 "round_number": 1,
                 "matches": [
                     {
-                        "player1": {
-                            "name": "Tina Thomas",
-                            "email": "jonathan34@example.com",
-                            "chess_id": "LA84930",
-                            "birthday": "13-09-1975",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Andrew Foley",
-                            "email": "sharonbrown@example.org",
-                            "chess_id": "AA20548",
-                            "birthday": "12-03-1977",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "FY61741",
+                        "player2_id": "QF01697",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Kyle Black",
-                            "email": "simmonsjane@example.org",
-                            "chess_id": "EH80058",
-                            "birthday": "15-09-1951",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Grace Cobb",
-                            "email": "gellis@example.org",
-                            "chess_id": "HY04207",
-                            "birthday": "24-07-1998",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "OW14240",
+                        "player2_id": "XW31336",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Shaun Martinez",
-                            "email": "willie67@example.net",
-                            "chess_id": "LH07588",
-                            "birthday": "04-09-1938",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Melissa Ford",
-                            "email": "christinesanchez@example.com",
-                            "chess_id": "UY63209",
-                            "birthday": "06-08-1945",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "AA20548",
+                        "player2_id": "PV16440",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Derrick Cross",
-                            "email": "cschwartz@example.net",
-                            "chess_id": "KV43923",
-                            "birthday": "09-05-1916",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Rachel Myers",
-                            "email": "brian22@example.org",
-                            "chess_id": "PB43166",
-                            "birthday": "04-12-1924",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "DP10300",
+                        "player2_id": "LA84930",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Anthony Hines",
-                            "email": "ijohnston@example.org",
-                            "chess_id": "LS93715",
-                            "birthday": "03-06-1973",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "John Phillips",
-                            "email": "gregbarnes@example.net",
-                            "chess_id": "RW15089",
-                            "birthday": "21-03-1935",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "NX13191",
+                        "player2_id": "NG39713",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Tracy Hendricks",
-                            "email": "nwalter@example.net",
-                            "chess_id": "LM54156",
-                            "birthday": "24-07-1939",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "John Underwood",
-                            "email": "shortmelvin@example.net",
-                            "chess_id": "JW63361",
-                            "birthday": "23-01-1921",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "LM54156",
+                        "player2_id": "NT52182",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Ryan Warren",
-                            "email": "wcastillo@example.com",
-                            "chess_id": "QJ67186",
-                            "birthday": "29-08-1998",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Deborah Taylor",
-                            "email": "molly81@example.org",
-                            "chess_id": "FQ87503",
-                            "birthday": "23-06-1979",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "EH80058",
+                        "player2_id": "HG65375",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Deanna Guerra",
-                            "email": "kelseythomas@example.com",
-                            "chess_id": "OW14240",
-                            "birthday": "13-12-1948",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Philip Sullivan",
-                            "email": "jennifer46@example.com",
-                            "chess_id": "VU19801",
-                            "birthday": "22-01-1987",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "LS93715",
+                        "player2_id": "RN31708",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Dustin Byrd",
-                            "email": "michellehorn@example.org",
-                            "chess_id": "HG65375",
-                            "birthday": "20-12-1980",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Shawn Key",
-                            "email": "zbyrd@example.net",
-                            "chess_id": "QZ98880",
-                            "birthday": "05-08-1916",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "OO65047",
+                        "player2_id": "OS93227",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Tim",
-                            "email": "t@y.vu",
-                            "chess_id": "NG39713",
-                            "birthday": "29-08-1957",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Peter Francis",
-                            "email": "christophercarroll@example.com",
-                            "chess_id": "FY61741",
-                            "birthday": "18-11-1927",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "IV51506",
+                        "player2_id": "GN87065",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Bradley Lewis",
-                            "email": "evansdavid@example.net",
-                            "chess_id": "NG39064",
-                            "birthday": "20-05-1971",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Tyler Brown",
-                            "email": "watersbob@example.net",
-                            "chess_id": "QQ22510",
-                            "birthday": "07-05-2001",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "RW15089",
+                        "player2_id": "YQ88272",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Debra Wright",
-                            "email": "masonfrancis@example.org",
-                            "chess_id": "KX94073",
-                            "birthday": "23-10-2002",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Henry Grant",
-                            "email": "mcknightjimmy@example.com",
-                            "chess_id": "CF24301",
-                            "birthday": "28-04-1936",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "LH07588",
+                        "player2_id": "NF64548",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Jason Sanford",
-                            "email": "edwardwatkins@example.org",
-                            "chess_id": "NX13191",
-                            "birthday": "06-11-1959",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Ruth Richardson",
-                            "email": "walshnathan@example.net",
-                            "chess_id": "XW31336",
-                            "birthday": "05-03-1961",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "JW63361",
+                        "player2_id": "NG39064",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Adrian Ward",
-                            "email": "nguyenmichael@example.net",
-                            "chess_id": "IV51506",
-                            "birthday": "19-08-1939",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Paul Miller",
-                            "email": "stokessandra@example.net",
-                            "chess_id": "GN87065",
-                            "birthday": "02-05-1972",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "QN17136",
+                        "player2_id": "PB43166",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Michelle Ramos",
-                            "email": "marcgross@example.org",
-                            "chess_id": "PV16440",
-                            "birthday": "27-04-1950",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Whitney Hernandez",
-                            "email": "rortiz@example.org",
-                            "chess_id": "QF01697",
-                            "birthday": "10-11-1921",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "KX94073",
+                        "player2_id": "QZ98880",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Steven Peterson",
-                            "email": "christinerussell@example.net",
-                            "chess_id": "RN31708",
-                            "birthday": "06-07-1944",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Billy Anderson",
-                            "email": "marywilson@example.net",
-                            "chess_id": "DP10300",
-                            "birthday": "25-08-1970",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "QJ67186",
+                        "player2_id": "HY04207",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Jeff Boyer",
-                            "email": "heatherbowman@example.net",
-                            "chess_id": "BR95594",
-                            "birthday": "06-01-1930",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Randall Jones",
-                            "email": "candiceherrera@example.net",
-                            "chess_id": "NT52182",
-                            "birthday": "22-11-1914",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "KV43923",
+                        "player2_id": "CF24301",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Abigail Walsh",
-                            "email": "justinmartin@example.com",
-                            "chess_id": "NF64548",
-                            "birthday": "18-03-1931",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Alice Johnson",
-                            "email": "alice@example.com",
-                            "chess_id": "A12345",
-                            "birthday": "12-05-1990",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "FQ87503",
+                        "player2_id": "XF90587",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Katherine Walton",
-                            "email": "prestonbrittany@example.net",
-                            "chess_id": "OO65047",
-                            "birthday": "28-09-1938",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Jeremy Pena",
-                            "email": "ryancarlson@example.org",
-                            "chess_id": "XF90587",
-                            "birthday": "03-06-1950",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "UY63209",
+                        "player2_id": "VU19801",
+                        "result": "1"
                     },
                     {
-                        "player1": {
-                            "name": "Michael Guerrero",
-                            "email": "vazqueznatalie@example.org",
-                            "chess_id": "QN17136",
-                            "birthday": "04-02-1969",
-                            "points": 0
-                        },
-                        "player2": {
-                            "name": "Dr. Katelyn Velez",
-                            "email": "hunterlopez@example.com",
-                            "chess_id": "YQ88272",
-                            "birthday": "03-07-2008",
-                            "points": 0
-                        },
-                        "result": null
+                        "player1_id": "QQ22510",
+                        "player2_id": "BR95594",
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "round_number": 2,
+                "matches": [
+                    {
+                        "player1_id": "JW63361",
+                        "player2_id": "QQ22510",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "LH07588",
+                        "player2_id": "AA20548",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "KX94073",
+                        "player2_id": "EH80058",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "QN17136",
+                        "player2_id": "OO65047",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "RW15089",
+                        "player2_id": "LS93715",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "UY63209",
+                        "player2_id": "QJ67186",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "DP10300",
+                        "player2_id": "LM54156",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "NX13191",
+                        "player2_id": "FY61741",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "KV43923",
+                        "player2_id": "FQ87503",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "IV51506",
+                        "player2_id": "OW14240",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "NG39713",
+                        "player2_id": "QZ98880",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "QF01697",
+                        "player2_id": "BR95594",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "GN87065",
+                        "player2_id": "NT52182",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "LA84930",
+                        "player2_id": "NF64548",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "NG39064",
+                        "player2_id": "XF90587",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "CF24301",
+                        "player2_id": "YQ88272",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "HG65375",
+                        "player2_id": "PV16440",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "HY04207",
+                        "player2_id": "XW31336",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "PB43166",
+                        "player2_id": "RN31708",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "VU19801",
+                        "player2_id": "OS93227",
+                        "result": "2"
                     }
                 ]
             }
         ]
-    },
-    {
-        "name": "Good Luck",
-        "venue": "Happy Place",
-        "start_date": "2026-07-12",
-        "end_date": "2026-07-13",
-        "total_rounds": 3,
-        "current_round": 0,
-        "players": [
-            {
-                "name": "Donna lader",
-                "email": "donna@aol.com",
-                "chess_id": "A54321",
-                "birthday": "06-27-1990"
-            }
-        ],
-        "rounds": []
     }
 ]

@@ -1,13 +1,12 @@
-from dataclasses import dataclass, field
-from typing import List
 from models.match import Match
 
-@dataclass
 class Round:
-    round_number: int
-    matches: List[Match] = field(default_factory=list)
+    def __init__(self, round_number):
+        self.round_number = round_number
+        self.matches = []
 
-    def add_match(self, match: Match):
+    def add_match(self, match):
+        """Add a match to this round."""
         self.matches.append(match)
 
     def to_dict(self):
@@ -17,10 +16,13 @@ class Round:
         }
 
     @staticmethod
-    def from_dict(data):
-        matches = [Match.from_dict(m) for m in data.get("matches", [])]
-        return Round(
-            round_number=data["round_number"],
-            matches=matches
-        )
+    def from_dict(data, players):
+        round_obj = Round(data["round_number"])
+        round_obj.matches = [
+            Match.from_dict(m, players)
+            for m in data.get("matches", [])
+        ]
+        return round_obj
+
+
 
