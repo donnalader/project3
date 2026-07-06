@@ -8,7 +8,13 @@ class TournamentActionsMenu(BaseScreen):
         super().__init__(**kwargs)
 
     def display(self):
+        tournament = self.context.kwargs.get("tournament")
+        
         print("\n=== TOURNAMENT ACTIONS ===")
+
+        if tournament:
+            print(f"Selected tournament: {tournament.name}")
+
         print("1. Add player")
         print("2. View players")
         print("3. Generate rounds")

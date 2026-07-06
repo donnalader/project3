@@ -255,5 +255,22 @@
             }
         ],
         "rounds": []
+    },
+    {
+        "name": "Good Luck",
+        "venue": "Happy Place",
+        "start_date": "2026-07-12",
+        "end_date": "2026-07-13",
+        "total_rounds": 3,
+        "current_round": 1,
+        "players": [
+            {
+                "name": "Donna lader",
+                "email": "donna@aol.com",
+                "chess_id": "A54321",
+                "birthday": "06-27-1990"
+            }
+        ],
+        "rounds": []
     }
 ]
