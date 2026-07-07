@@ -4,7 +4,6 @@ from commands import NoopCmd
 from models.round import Round
 from models.match import Match
 
-
 class TournamentViewCurrentRoundCmd(BaseCommand):
     name = "tournament-view-current-round"
 
@@ -15,7 +14,13 @@ class TournamentViewCurrentRoundCmd(BaseCommand):
     def execute(self, app, **kwargs):
 
         tournament = self.tournament
-        index = self.tournament_index or kwargs.get("tournament_index")
+
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         if tournament is None or index is None:
             print("Error: Tournament or index missing.")
@@ -24,9 +29,11 @@ class TournamentViewCurrentRoundCmd(BaseCommand):
         # No rounds generated yet
         if tournament.current_round == 0 or len(tournament.rounds) == 0:
             print("\nNo rounds have been generated yet.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # Get current round
         current_round_number = tournament.current_round
@@ -45,9 +52,9 @@ class TournamentViewCurrentRoundCmd(BaseCommand):
                 # Determine result text
                 if match.result is None:
                     result_text = "Not played yet"
-                elif match.result == 1:
+                elif match.result == "1":
                     result_text = f"{p1.name} wins"
-                elif match.result == 2:
+                elif match.result == "2":
                     result_text = f"{p2.name} wins"
                 elif match.result == "T":
                     result_text = "Draw"
@@ -61,6 +68,8 @@ class TournamentViewCurrentRoundCmd(BaseCommand):
         print("\nPress Enter to return to the Tournament Actions menu.")
         input()
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
+        return NoopCmd(
+            "tournament-actions",
+            tournament=tournament,
+            tournament_index=index
+        )

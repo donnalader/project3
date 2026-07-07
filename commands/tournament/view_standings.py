@@ -1,7 +1,6 @@
 from commands.base import BaseCommand
 from commands import NoopCmd
 
-
 class TournamentViewStandingsCmd(BaseCommand):
     name = "tournament-view-standings"
 
@@ -12,7 +11,13 @@ class TournamentViewStandingsCmd(BaseCommand):
     def execute(self, app, **kwargs):
 
         tournament = self.tournament
-        index = self.tournament_index or kwargs.get("tournament_index")
+
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         if tournament is None or index is None:
             print("Error: Tournament or index missing.")
@@ -22,9 +27,11 @@ class TournamentViewStandingsCmd(BaseCommand):
 
         if not players:
             print("\nNo players found in this tournament.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         print("\n=== CURRENT STANDINGS ===")
 
@@ -37,6 +44,9 @@ class TournamentViewStandingsCmd(BaseCommand):
         print("\nPress Enter to return to the Tournament Actions menu.")
         input()
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
+        return NoopCmd(
+            "tournament-actions",
+            tournament=tournament,
+            tournament_index=index
+        )
+

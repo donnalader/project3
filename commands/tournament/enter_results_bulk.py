@@ -1,7 +1,7 @@
 import json
 from commands.base import BaseCommand
 from commands import NoopCmd
-
+from models.tournament import Tournament
 
 class TournamentEnterResultsBulkCmd(BaseCommand):
     name = "tournament-enter-results-bulk"
@@ -13,7 +13,13 @@ class TournamentEnterResultsBulkCmd(BaseCommand):
     def execute(self, app, **kwargs):
 
         tournament = self.tournament
-        index = self.tournament_index or kwargs.get("tournament_index")
+
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         if tournament is None or index is None:
             print("Error: Tournament or index missing.")
@@ -22,9 +28,11 @@ class TournamentEnterResultsBulkCmd(BaseCommand):
         # No rounds yet
         if tournament.current_round == 0 or len(tournament.rounds) == 0:
             print("\nNo rounds have been generated yet.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # Get current round
         current_round_number = tournament.current_round
@@ -44,14 +52,11 @@ class TournamentEnterResultsBulkCmd(BaseCommand):
             p1 = match.player1
             p2 = match.player2
 
-            # Show match
             print(f"\nMatch {i}: {p1.name} vs {p2.name}")
 
-            # If already has a result, show it and allow overwrite
             if match.result is not None:
                 print(f"Existing result: {match.result} (will be overwritten)")
 
-            # Input loop
             while True:
                 result = input("Result (1/2/T): ").strip().upper()
                 if result in ("1", "2", "T"):
@@ -63,7 +68,6 @@ class TournamentEnterResultsBulkCmd(BaseCommand):
         for match, result in zip(current_round.matches, results):
             match.result = result
 
-            # Update points
             if result == "1":
                 match.player1.points += 1
             elif result == "2":
@@ -72,17 +76,25 @@ class TournamentEnterResultsBulkCmd(BaseCommand):
                 match.player1.points += 0.5
                 match.player2.points += 0.5
 
-        # Save tournament
-        with open("data/tournaments.json", "r") as f:
+        # ⭐ FIX: Save to correct file
+        with open("data/tournaments/in-progress.json", "r") as f:
             data = json.load(f)
 
         data[index] = tournament.to_dict()
 
-        with open("data/tournaments.json", "w") as f:
+        with open("data/tournaments/in-progress.json", "w") as f:
             json.dump(data, f, indent=4)
 
         print("\nAll results saved successfully!")
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
+        # ⭐ FIX: Reload updated tournament so UI sees new results
+        with open("data/tournaments/in-progress.json", "r") as f:
+            updated_data = json.load(f)
+
+        updated_tournament = Tournament.from_dict(updated_data[index])
+
+        return NoopCmd(
+            "tournament-actions",
+            tournament=updated_tournament,
+            tournament_index=index
+        )

@@ -2,8 +2,8 @@ import json
 from commands.base import BaseCommand
 from commands import NoopCmd
 from models.player import Player
+from models.tournament import Tournament
 import os
-
 
 class TournamentSearchPlayersCmd(BaseCommand):
     name = "tournament-search-players"
@@ -36,7 +36,13 @@ class TournamentSearchPlayersCmd(BaseCommand):
     def execute(self, app, **kwargs):
 
         tournament = self.tournament
-        index = self.tournament_index or kwargs.get("tournament_index")
+
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         if tournament is None or index is None:
             print("Error: Tournament or index missing.")
@@ -51,17 +57,21 @@ class TournamentSearchPlayersCmd(BaseCommand):
         choice = input("Choice: ").strip().upper()
 
         if choice == "X":
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         all_players = self.load_all_club_players()
 
         if not all_players:
             print("No club players found.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # -----------------------------
         # SEARCH BY CHESS ID
@@ -79,18 +89,22 @@ class TournamentSearchPlayersCmd(BaseCommand):
 
         else:
             print("Invalid choice.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # -----------------------------
         # DISPLAY RESULTS
         # -----------------------------
         if not matches:
             print("No matching players found.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         print("\nMatches:")
         for i, p in enumerate(matches, start=1):
@@ -100,35 +114,49 @@ class TournamentSearchPlayersCmd(BaseCommand):
         sel = input("Choice: ").strip().upper()
 
         if sel == "X":
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         try:
             sel_index = int(sel) - 1
             player = matches[sel_index]
         except Exception:
             print("Invalid selection.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # -----------------------------
         # REGISTER PLAYER
         # -----------------------------
         tournament.add_player(player)
 
-        # Save tournament
-        with open("data/tournaments.json", "r") as f:
+        # ⭐ FIX: Save to correct file
+        with open("data/tournaments/in-progress.json", "r") as f:
             data = json.load(f)
 
         data[index] = tournament.to_dict()
 
-        with open("data/tournaments.json", "w") as f:
+        with open("data/tournaments/in-progress.json", "w") as f:
             json.dump(data, f, indent=4)
 
         print(f"\nPlayer {player.name} registered successfully!")
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
+        # ⭐ FIX: Reload updated tournament so UI sees new player
+        with open("data/tournaments/in-progress.json", "r") as f:
+            updated_data = json.load(f)
+
+        updated_tournament = Tournament.from_dict(updated_data[index])
+
+        return NoopCmd(
+            "tournament-actions",
+            tournament=updated_tournament,
+            tournament_index=index
+        )
+
+       

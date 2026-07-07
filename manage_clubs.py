@@ -27,23 +27,26 @@ class App:
         """
         Switch to a new screen by name.
         """
+
+        # Validate screen name
         if screen_name not in screen_registry:
             print(f"Unknown screen '{screen_name}'. Returning to main menu.")
             self.current_screen = MainMenu
             self.context = {"clubs": self.load_clubs()}
             return
 
+        # Set the new screen class
         self.current_screen = screen_registry[screen_name]
 
-        # Always keep clubs in context
-        new_context = {"clubs": self.context.get("clubs", [])}
-
-        # Add any additional kwargs (except None)
+        # ⭐ FIX: DO NOT wipe context unless explicitly told
+        # Merge new kwargs into existing context
         for key, value in kwargs.items():
             if value is not None:
-                new_context[key] = value
+                self.context[key] = value
 
-        self.context = new_context
+        # ⭐ Always keep clubs in context
+        if "clubs" not in self.context:
+            self.context["clubs"] = self.load_clubs()
 
     def run(self):
         """

@@ -1,6 +1,7 @@
 import json
 from commands.base import BaseCommand
 from commands import NoopCmd
+from models.tournament import Tournament
 
 class ResetTournamentCmd(BaseCommand):
     name = "tournament-reset"
@@ -11,7 +12,13 @@ class ResetTournamentCmd(BaseCommand):
 
     def execute(self, app, **kwargs):
         tournament = self.tournament
-        index = self.tournament_index or kwargs.get("tournament_index")
+
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         print("\nAre you sure you want to reset this tournament?")
         print("This will clear all rounds and all player points.")
@@ -19,9 +26,11 @@ class ResetTournamentCmd(BaseCommand):
 
         if confirm != "YES":
             print("Reset cancelled.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # Reset rounds and points
         tournament.rounds = []
@@ -30,17 +39,25 @@ class ResetTournamentCmd(BaseCommand):
         for p in tournament.players:
             p.points = 0
 
-        # Save changes
-        with open("data/tournaments.json", "r") as f:
+        # ⭐ FIX: Save to correct file
+        with open("data/tournaments/in-progress.json", "r") as f:
             data = json.load(f)
 
         data[index] = tournament.to_dict()
 
-        with open("data/tournaments.json", "w") as f:
+        with open("data/tournaments/in-progress.json", "w") as f:
             json.dump(data, f, indent=4)
 
         print("\nTournament has been reset successfully!")
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
+        # ⭐ FIX: Reload updated tournament so UI sees reset state
+        with open("data/tournaments/in-progress.json", "r") as f:
+            updated_data = json.load(f)
+
+        updated_tournament = Tournament.from_dict(updated_data[index])
+
+        return NoopCmd(
+            "tournament-actions",
+            tournament=updated_tournament,
+            tournament_index=index
+        )

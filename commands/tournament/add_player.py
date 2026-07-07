@@ -12,15 +12,18 @@ class TournamentAddPlayerCmd(BaseCommand):
 
     def execute(self, app, **kwargs):
 
-        # Tournament is already stored in the command
         tournament = self.tournament
 
         if tournament is None:
             print("Error: No tournament loaded. Please load a tournament first.")
             return NoopCmd("tournament-menu")
 
-        # Tournament index comes from the command OR kwargs
-        index = self.tournament_index or kwargs.get("tournament_index")
+        # ⭐ FIX: preserve index 0 correctly
+        index = (
+            self.tournament_index
+            if self.tournament_index is not None
+            else kwargs.get("tournament_index")
+        )
 
         if index is None:
             print("Error: Tournament index missing.")
@@ -35,9 +38,11 @@ class TournamentAddPlayerCmd(BaseCommand):
 
         if not name:
             print("Player name cannot be empty.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # Create Player object
         new_player = Player(
@@ -50,26 +55,29 @@ class TournamentAddPlayerCmd(BaseCommand):
         # Add to tournament
         tournament.players.append(new_player)
 
-        # Load tournaments JSON
+        # ⭐ FIX: Load from correct file
         try:
-            with open("data/tournaments.json", "r") as f:
+            with open("data/tournaments/in-progress.json", "r") as f:
                 data = json.load(f)
         except FileNotFoundError:
-            print("Error: tournaments.json missing.")
-            return NoopCmd("tournament-actions",
-                           tournament=tournament,
-                           tournament_index=index)
+            print("Error: in-progress.json missing.")
+            return NoopCmd(
+                "tournament-actions",
+                tournament=tournament,
+                tournament_index=index
+            )
 
         # Replace the correct tournament entry
         data[index] = tournament.to_dict()
 
-        # Save JSON
-        with open("data/tournaments.json", "w") as f:
+        # ⭐ FIX: Save to correct file
+        with open("data/tournaments/in-progress.json", "w") as f:
             json.dump(data, f, indent=4)
 
         print(f"\nPlayer '{name}' added to tournament '{tournament.name}'.")
 
-        return NoopCmd("tournament-actions",
-                       tournament=tournament,
-                       tournament_index=index)
-
+        return NoopCmd(
+            "tournament-actions",
+            tournament=tournament,
+            tournament_index=index
+        )

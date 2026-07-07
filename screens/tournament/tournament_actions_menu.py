@@ -1,6 +1,5 @@
 from screens.base_screen import BaseScreen
 
-
 class TournamentActionsMenu(BaseScreen):
     """Menu for actions inside a loaded tournament."""
 
@@ -47,6 +46,11 @@ class TournamentActionsMenu(BaseScreen):
 
         tournament = self.context.kwargs.get("tournament")
         tournament_index = self.context.kwargs.get("tournament_index")
+        
+        if tournament is None or tournament_index is None:
+            print("Error: Tournament index missing. Returning to Tournament Menu.")
+            return NoopCmd("tournament-menu")
+
 
         value = input("Choice: ").strip().upper()
 
