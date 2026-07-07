@@ -47,7 +47,7 @@ class TournamentGenerateRoundsCmd(BaseCommand):
                            tournament_index=index)
 
         # Prevent generating the same round twice
-        if tournament.current_round >= round_number:
+        if round_number <= len(tournament.rounds):
             print(f"Round {round_number} has already been generated.")
             return NoopCmd("tournament-actions",
                            tournament=tournament,

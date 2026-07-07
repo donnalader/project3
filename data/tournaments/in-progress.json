@@ -19,14 +19,14 @@
                 "email": "shortmelvin@example.net",
                 "chess_id": "JW63361",
                 "birthday": "23-01-1921",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Shawn Key",
                 "email": "zbyrd@example.net",
                 "chess_id": "QZ98880",
                 "birthday": "05-08-1916",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Tyler Brown",
@@ -54,7 +54,7 @@
                 "email": "stokessandra@example.net",
                 "chess_id": "GN87065",
                 "birthday": "02-05-1972",
-                "points": 0
+                "points": 2
             },
             {
                 "name": "Shaun Martinez",
@@ -75,42 +75,42 @@
                 "email": "jonathan34@example.com",
                 "chess_id": "LA84930",
                 "birthday": "13-09-1975",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Abigail Walsh",
                 "email": "justinmartin@example.com",
                 "chess_id": "NF64548",
                 "birthday": "18-03-1931",
-                "points": 1
+                "points": 2
             },
             {
                 "name": "Bradley Lewis",
                 "email": "evansdavid@example.net",
                 "chess_id": "NG39064",
                 "birthday": "20-05-1971",
-                "points": 1
+                "points": 0
             },
             {
                 "name": "Andrew Foley",
                 "email": "sharonbrown@example.org",
                 "chess_id": "AA20548",
                 "birthday": "12-03-1977",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Debra Wright",
                 "email": "masonfrancis@example.org",
                 "chess_id": "KX94073",
                 "birthday": "23-10-2002",
-                "points": 1
+                "points": 2
             },
             {
                 "name": "Kyle Black",
                 "email": "simmonsjane@example.org",
                 "chess_id": "EH80058",
                 "birthday": "15-09-1951",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Michael Guerrero",
@@ -124,21 +124,21 @@
                 "email": "prestonbrittany@example.net",
                 "chess_id": "OO65047",
                 "birthday": "28-09-1938",
-                "points": 1
+                "points": 0
             },
             {
                 "name": "Jeremy Pena",
                 "email": "ryancarlson@example.org",
                 "chess_id": "XF90587",
                 "birthday": "03-06-1950",
-                "points": 1
+                "points": 2
             },
             {
                 "name": "John Phillips",
                 "email": "gregbarnes@example.net",
                 "chess_id": "RW15089",
                 "birthday": "21-03-1935",
-                "points": 0
+                "points": 1
             },
             {
                 "name": "Anthony Hines",
@@ -152,7 +152,7 @@
                 "email": "donna@example.com",
                 "chess_id": "D12345",
                 "birthday": "06-27-1990",
-                "points": 0
+                "points": 1
             }
         ],
         "rounds": [
@@ -160,17 +160,7 @@
                 "round_number": 1,
                 "matches": [
                     {
-                        "player1_id": "QN17136",
-                        "player2_id": "JW63361",
-                        "result": "1"
-                    },
-                    {
-                        "player1_id": "LH07588",
-                        "player2_id": "LA84930",
-                        "result": "1"
-                    },
-                    {
-                        "player1_id": "BR95594",
+                        "player1_id": "NF64548",
                         "player2_id": "D12345",
                         "result": "1"
                     },
@@ -180,34 +170,99 @@
                         "result": "1"
                     },
                     {
-                        "player1_id": "LS93715",
-                        "player2_id": "AA20548",
-                        "result": "1"
-                    },
-                    {
-                        "player1_id": "XF90587",
-                        "player2_id": "RW15089",
+                        "player1_id": "EH80058",
+                        "player2_id": "JW63361",
                         "result": "1"
                     },
                     {
                         "player1_id": "NG39713",
-                        "player2_id": "EH80058",
+                        "player2_id": "OO65047",
                         "result": "1"
                     },
                     {
-                        "player1_id": "NG39064",
-                        "player2_id": "QZ98880",
+                        "player1_id": "GN87065",
+                        "player2_id": "QF01697",
                         "result": "1"
                     },
                     {
-                        "player1_id": "NF64548",
+                        "player1_id": "AA20548",
+                        "player2_id": "QN17136",
+                        "result": "1"
+                    },
+                    {
+                        "player1_id": "QZ98880",
+                        "player2_id": "LA84930",
+                        "result": "1"
+                    },
+                    {
+                        "player1_id": "BR95594",
                         "player2_id": "NT52182",
                         "result": "1"
                     },
                     {
-                        "player1_id": "OO65047",
-                        "player2_id": "GN87065",
+                        "player1_id": "LH07588",
+                        "player2_id": "NG39064",
                         "result": "1"
+                    },
+                    {
+                        "player1_id": "LS93715",
+                        "player2_id": "RW15089",
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "round_number": 2,
+                "matches": [
+                    {
+                        "player1_id": "NG39713",
+                        "player2_id": "QZ98880",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "BR95594",
+                        "player2_id": "GN87065",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "LH07588",
+                        "player2_id": "NF64548",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "AA20548",
+                        "player2_id": "KX94073",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "EH80058",
+                        "player2_id": "XF90587",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "LS93715",
+                        "player2_id": "JW63361",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "QQ22510",
+                        "player2_id": "QF01697",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "NT52182",
+                        "player2_id": "LA84930",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "NG39064",
+                        "player2_id": "QN17136",
+                        "result": "2"
+                    },
+                    {
+                        "player1_id": "OO65047",
+                        "player2_id": "RW15089",
+                        "result": "2"
                     }
                 ]
             }

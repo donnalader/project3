@@ -1,3 +1,5 @@
+import json
+from models.tournament import Tournament
 from screens.base_screen import BaseScreen
 
 class TournamentActionsMenu(BaseScreen):
@@ -6,7 +8,24 @@ class TournamentActionsMenu(BaseScreen):
     def display(self):
         tournament = self.context.kwargs.get("tournament")
         tournament_index = self.context.kwargs.get("tournament_index")
+         
+        # ⭐ FIX: Reload tournament from JSON every time the menu is shown
+        if tournament_index is not None:
+            try:
+                tournament_index = int(tournament_index)  # ensure integer
 
+                from models.tournament import Tournament
+                import json
+
+                with open("data/tournaments/in-progress.json", "r") as f:
+                    data = json.load(f)
+
+                tournament = Tournament.from_dict(data[tournament_index])
+                self.context.kwargs["tournament"] = tournament
+
+            except Exception as e:
+                print(f"Warning: Could not reload tournament from disk. ({e})")
+    
         print("\n=== TOURNAMENT ACTIONS ===")
 
         if tournament:
