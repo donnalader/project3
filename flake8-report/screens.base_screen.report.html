@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: screens\base_screen.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="screens.base_screen.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               screens\base_screen.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  4
+               </span>
+               <strong>E501:</strong> line too long (81 > 79 characters)
+               
+                  (and 3 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (81 > 79 characters):</p>
+               
+               <a href="screens.base_screen.source.html#l21">
+                  <tt><i>21</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Child classes must implement this method. It must return a Command.&quot;&quot;&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="screens.base_screen.source.html#l27">
+                  <tt><i>27</i> <span class="sd">        If default is provided and the user provides an empty response, then the default value is used.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (147 > 79 characters):</p>
+               
+               <a href="screens.base_screen.source.html#l50">
+                  <tt><i>50</i>         <span class="n">mail_rgxp</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;(?:[a-z0-9!#$%&amp;&#39;*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;&#39;*+/=?^_`{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="screens.base_screen.source.html#l90">
+                  <tt><i>90</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Main method to &#39;run&#39; the screen - displays a message and gets a command&quot;&quot;&quot;</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E302">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E302:</strong> expected 2 blank lines, found 1
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="screens.base_screen.source.html#l5">
+                  <tt><i>5</i> <span class="k">class</span><span class="w"> </span><span class="nc">BaseScreen</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: screens\tournament\tournament_actions_menu.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="screens.tournament.tournament_actions_menu.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               screens\tournament\tournament_actions_menu.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="F401">
+               <span class="count sev-1">
+                  2
+               </span>
+               <strong>F401:</strong> 'json' imported but unused
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>'json' imported but unused:</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l1">
+                  <tt><i>1</i> <span class="kn">import</span><span class="w"> </span><span class="nn">json</span></tt>
+               </a>
+            </li><li>
+               
+               <p>'models.tournament.Tournament' imported but unused:</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l2">
+                  <tt><i>2</i> <span class="kn">from</span><span class="w"> </span><span class="nn">models.tournament</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tournament</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="F811">
+               <span class="count sev-1">
+                  2
+               </span>
+               <strong>F811:</strong> redefinition of unused 'Tournament' from line 2
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Redefinition of unused 'Tournament' from line 2:</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l17">
+                  <tt><i>17</i>                 <span class="kn">from</span><span class="w"> </span><span class="nn">models.tournament</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tournament</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Redefinition of unused 'json' from line 1:</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l18">
+                  <tt><i>18</i>                 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  26
+               </span>
+               <strong>E501:</strong> line too long (83 > 79 characters)
+               
+                  (and 12 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l45">
+                  <tt><i>45</i>             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Round: </span><span class="si">{</span><span class="n">tournament</span><span class="o">.</span><span class="n">current_round</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">tournament</span><span class="o">.</span><span class="n">total_rounds</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l71">
+                  <tt><i>71</i>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Tournament index missing. Returning to Tournament Menu.&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (99 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l79">
+                  <tt><i>79</i>             <span class="k">return</span> <span class="n">TournamentAddPlayerCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (81 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l82">
+                  <tt><i>82</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.view_players</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentViewPlayersCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (101 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l83">
+                  <tt><i>83</i>             <span class="k">return</span> <span class="n">TournamentViewPlayersCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (87 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l86">
+                  <tt><i>86</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.generate_rounds</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentGenerateRoundsCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (104 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l87">
+                  <tt><i>87</i>             <span class="k">return</span> <span class="n">TournamentGenerateRoundsCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l90">
+                  <tt><i>90</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.import_players</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentImportPlayersCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l91">
+                  <tt><i>91</i>             <span class="k">return</span> <span class="n">TournamentImportPlayersCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l94">
+                  <tt><i>94</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.enter_results</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentEnterResultsCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (102 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l95">
+                  <tt><i>95</i>             <span class="k">return</span> <span class="n">TournamentEnterResultsCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l98">
+                  <tt><i>98</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.advance_round</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentAdvanceRoundCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (102 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l99">
+                  <tt><i>99</i>             <span class="k">return</span> <span class="n">TournamentAdvanceRoundCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (96 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l103">
+                  <tt><i>103</i>             <span class="k">return</span> <span class="n">TournamentReportCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l106">
+                  <tt><i>106</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.search_players</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentSearchPlayersCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l107">
+                  <tt><i>107</i>             <span class="k">return</span> <span class="n">TournamentSearchPlayersCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (92 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l110">
+                  <tt><i>110</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.view_current_round</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentViewCurrentRoundCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (106 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l111">
+                  <tt><i>111</i>             <span class="k">return</span> <span class="n">TournamentViewCurrentRoundCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l114">
+                  <tt><i>114</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.view_standings</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentViewStandingsCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l115">
+                  <tt><i>115</i>             <span class="k">return</span> <span class="n">TournamentViewStandingsCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (92 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l118">
+                  <tt><i>118</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.enter_results_bulk</span><span class="w"> </span><span class="kn">import</span> <span class="n">TournamentEnterResultsBulkCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (106 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l119">
+                  <tt><i>119</i>             <span class="k">return</span> <span class="n">TournamentEnterResultsBulkCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (95 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l123">
+                  <tt><i>123</i>             <span class="k">return</span> <span class="n">ResetTournamentCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (81 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l126">
+                  <tt><i>126</i>             <span class="kn">from</span><span class="w"> </span><span class="nn">commands.tournament.finish_tournament</span><span class="w"> </span><span class="kn">import</span> <span class="n">FinishTournamentCmd</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (96 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l127">
+                  <tt><i>127</i>             <span class="k">return</span> <span class="n">FinishTournamentCmd</span><span class="p">(</span><span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (106 > 79 characters):</p>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l134">
+                  <tt><i>134</i>             <span class="k">return</span> <span class="n">NoopCmd</span><span class="p">(</span><span class="s2">&quot;tournament-actions&quot;</span><span class="p">,</span> <span class="n">tournament</span><span class="o">=</span><span class="n">tournament</span><span class="p">,</span> <span class="n">tournament_index</span><span class="o">=</span><span class="n">tournament_index</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W293">
+               <span class="count sev-2">
+                  7
+               </span>
+               <strong>W293:</strong> blank line contains whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l11">
+                  <tt><i>11</i>          </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l28">
+                  <tt><i>28</i>     </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l69">
+                  <tt><i>69</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l112">
+                  <tt><i>112</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l116">
+                  <tt><i>116</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l120">
+                  <tt><i>120</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l124">
+                  <tt><i>124</i>         </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E302">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E302:</strong> expected 2 blank lines, found 1
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l5">
+                  <tt><i>5</i> <span class="k">class</span><span class="w"> </span><span class="nc">TournamentActionsMenu</span><span class="p">(</span><span class="n">BaseScreen</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E303">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E303:</strong> too many blank lines (2)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="screens.tournament.tournament_actions_menu.source.html#l75">
+                  <tt><i>75</i>         <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choice: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

@@ -58,6 +58,7 @@ class TournamentActionsMenu(BaseScreen):
         print("10. View standings")
         print("11. Enter all results (bulk)")
         print("12. Reset tournament")
+        print("13. Finish tournament")
         print("X. Return to main menu")
 
     def get_command(self):
@@ -120,6 +121,10 @@ class TournamentActionsMenu(BaseScreen):
         elif value == "12":
             from commands.tournament.reset_tournament import ResetTournamentCmd
             return ResetTournamentCmd(tournament=tournament, tournament_index=tournament_index)
+        
+        elif value == "13":
+            from commands.tournament.finish_tournament import FinishTournamentCmd
+            return FinishTournamentCmd(tournament=tournament, tournament_index=tournament_index)
 
         elif value == "X":
             return NoopCmd("main-menu", clear_context=True)
