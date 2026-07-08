@@ -51,6 +51,14 @@ Tournament Manager is a Python Command Line Interface application that guides th
 7. HTML report generation - stand alone reports with player standings.
 8. flake8 HTNL reports - code quality reports included.
 ### Installation 
-Clone the git repository: 
+Clone the git repository: https://github.com/donnalader/project3.git
+### How to Run the Program
+python manage_clubs.py and the menu screens are self-explanatory and user-friendly. 
+### How State is Saved and Loaded
+All tournament data is automatically persisted to JSON files in the data directory after every change - no manual save step is needed.
+  1. after a tournament is created
+  2. after each player is added
+  3. after each round is generated.
+In-progress tournaments are in the in-progress.json. When a tournament is completed, the tournament actions menu has a option to Finish the 
 
 
