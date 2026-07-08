@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "name": "Chessapolooza",
+        "venue": "Mayfield",
+        "start_date": "2026-07-10",
+        "end_date": "2026-07-10",
+        "total_rounds": 2,
+        "current_round": 0,
+        "players": [],
+        "rounds": []
+    }
+]
