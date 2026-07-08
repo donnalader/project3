@@ -31,3 +31,15 @@ When executed, a command returns a context.
 The main application is controlled by `manage_clubs.py`. Based on the current Context instance, it instantiates the screens and runs them. The command returned by the screen is then executed to obtain the next context.
 
 The main application is an infinite loop and stops when a context has the attribute `run` set to False.
+
+# How to Use the Tournament Manager
+This is a commnand-line Pyhton application for managing chess (or any round-based) tournaments. Users can create tournaments, register players, run rounds, record match results, persist state to JSON, and generate polished HTML reports. 
+### Project Overview
+Tournament Manager is a Python Command Line Interface application that guides the user through the full lifecycle of a tournament:
+1. Create a new tournament or load an existing one.
+2. Register players and seed them into the bracket.
+3. Generate rounds automatically with pairings.
+4. Enter match results round by round.
+5. Export results to a self-contained HTML report. 
+
+
