@@ -40,6 +40,17 @@ Tournament Manager is a Python Command Line Interface application that guides th
 2. Register players and seed them into the bracket.
 3. Generate rounds automatically with pairings.
 4. Enter match results round by round.
-5. Export results to a self-contained HTML report. 
+5. Export results to a self-contained HTML report.
+### Features
+1. Tournament creation - name, location, date range and number of rounds.
+2. Player management - add players with name and chess ID.
+3. Automatic pairing - round generation with no repeat pairings.
+4. Result entry - record wins, losses and draws per round.
+5. Score tracking - running totals updated after every round.
+6. JSON persistence - full state saved to and restored from .json files.
+7. HTML report generation - stand alone reports with player standings.
+8. flake8 HTNL reports - code quality reports included.
+### Installation 
+Clone the git repository: 
 
 
