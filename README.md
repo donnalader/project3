@@ -59,6 +59,8 @@ All tournament data is automatically persisted to JSON files in the data directo
   1. after a tournament is created
   2. after each player is added
   3. after each round is generated.
-In-progress tournaments are in the in-progress.json. When a tournament is completed, the tournament actions menu has a option to Finish the 
+In-progress tournaments are in the in-progress.json. When a tournament is completed, the tournament actions menu has a option called 'Finish the Tournament' and that takes it out of the in-progress file and puts it is the completed.json file.
+## Structure
+All tournament files are divided into separate packages for Models, Screens and Commands following the MVC pattern. 
 
 
