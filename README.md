@@ -62,5 +62,7 @@ All tournament data is automatically persisted to JSON files in the data directo
 In-progress tournaments are in the in-progress.json. When a tournament is completed, the tournament actions menu has a option called 'Finish the Tournament' and that takes it out of the in-progress file and puts it is the completed.json file.
 ## Structure
 All tournament files are divided into separate packages for Models, Screens and Commands following the MVC pattern. 
+## Flake8 Report
+I ran the flake8 report in python using: python -m flake8 --format=html --html=flake8-report
 
 
