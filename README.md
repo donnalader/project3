@@ -40,6 +40,29 @@ Tournament Manager is a Python Command Line Interface application that guides th
 2. Register players and seed them into the bracket.
 3. Generate rounds automatically with pairings.
 4. Enter match results round by round.
-5. Export results to a self-contained HTML report. 
+5. Export results to a self-contained HTML report.
+### Features
+1. Tournament creation - name, location, date range and number of rounds.
+2. Player management - add players with name and chess ID.
+3. Automatic pairing - round generation with no repeat pairings.
+4. Result entry - record wins, losses and draws per round.
+5. Score tracking - running totals updated after every round.
+6. JSON persistence - full state saved to and restored from .json files.
+7. HTML report generation - stand alone reports with player standings.
+8. flake8 HTNL reports - code quality reports included.
+### Installation 
+Clone the git repository: https://github.com/donnalader/project3.git
+### How to Run the Program
+python manage_clubs.py and the menu screens are self-explanatory and user-friendly. 
+### How State is Saved and Loaded
+All tournament data is automatically persisted to JSON files in the data directory after every change - no manual save step is needed.
+  1. after a tournament is created
+  2. after each player is added
+  3. after each round is generated.
+In-progress tournaments are in the in-progress.json. When a tournament is completed, the tournament actions menu has a option called 'Finish the Tournament' and that takes it out of the in-progress file and puts it is the completed.json file.
+## Structure
+All tournament files are divided into separate packages for Models, Screens and Commands following the MVC pattern. 
+## Flake8 Report
+I ran the flake8 report in python using: python -m flake8 --format=html --html=flake8-report
 
 
